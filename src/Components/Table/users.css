@@ -1,0 +1,53 @@
+.table_area .ant-pagination,
+.table_area .ant-pagination-item-link,
+.table_area .ant-pagination-item-ellipsis,
+.table_area .ant-select-selection-search,
+.table_area .ant-select-selector {
+  color: white !important;
+}
+
+.table_area .ant-pagination .ant-pagination-item-active {
+  background-color: #e5e5e521 !important;
+}
+
+.table_area .ant-select-selector {
+  background-color: #06356e81 !important;
+}
+
+.ant-modal-footer {
+  display: none !important;
+}
+
+.ant-modal-body .ant-form-item {
+  margin-bottom: 10px;
+}
+
+
+
+.ant-modal-header {
+  margin-bottom: 20px !important;
+}
+
+.ant-btn-primary {
+  margin-left: 20%;
+  margin-top: 10px;
+}
+
+/* Style for the form submit button on hover */
+.ant-btn-primary:hover {
+  background-color: #096dd9; /* Darker shade on hover */
+  border-color: #096dd9;
+}
+
+.ant-form-item .ant-form-item-label {
+  text-align: justify;
+  padding-left: 10%;
+}
+
+.ant-modal-body {
+  padding-right: 6%;
+}
+
+.ant-modal-body input{
+  color: black !important;
+}

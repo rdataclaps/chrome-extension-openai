@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LogInputField from "../Components/InputField/LogInputField";
 import Logo from "../Components/assets/Icons/Logo.svg";
 import Login_img from "../Components/assets/Images/Login.png";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux"
 import { forgotPassword } from "../redux/actions/authActions";
 import { toast } from "react-toastify";
 
@@ -48,7 +48,7 @@ function ForgotPassword() {
             <div className="login_header">
               <Link to="/">
                 {" "}
-                <h2>DOCUBARK</h2>
+                <h2>Chrome Extension</h2>
               </Link>
               <div className="lang_selector">
                 <p>

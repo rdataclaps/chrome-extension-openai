@@ -2,7 +2,7 @@ import authAxios from "../../services/authAxios";
 
 export const getFiles = () => async (dispatch) => {
     try {
-        const response = await authAxios.get('get-train-data');
+        const response = await authAxios.get('/get-train-data');
         dispatch({ type: 'GET_FILES_SUCCESS', payload: response.data });
     } catch (error) {
         dispatch({ type: 'GET_FILES_ERROR', payload: error.message });
@@ -16,7 +16,7 @@ export const uploadFile = (file, chatSpecific) => async (dispatch, getState) => 
             const formData = new FormData();
             formData.append('file', file);
             formData.append('chat_id', chatSpecific ? currentChat.id : "null");
-            await authAxios.post('train', formData);
+            await authAxios.post('/train', formData);
             dispatch({ type: 'UPLOAD_FILE_SUCCESS' });
             dispatch(getFiles());
         } else {

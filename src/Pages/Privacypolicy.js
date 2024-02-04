@@ -3,12 +3,12 @@ import React from 'react';
 function PrivacyPolicy() {
     return (
         <div className="privacy-policy-container">
-            <h1>Privacy Policy for DOCUBARK</h1>
+            <h1>Privacy Policy for Chrome Extension</h1>
             
             <p><strong>Last updated: Sept 29, 2023</strong></p>
 
             <h2>1. Introduction</h2>
-            <p>Welcome to DOCUBARK. We respect your privacy and want to protect your personal data. This Privacy Policy will tell you how we collect, use, and protect your data.</p>
+            <p>Welcome to Chrome Extension. We respect your privacy and want to protect your personal data. This Privacy Policy will tell you how we collect, use, and protect your data.</p>
 
             <h2>2. Data Collection</h2>
             <p>We collect information you provide directly to us. For example, we collect data when you create an account, use our services, or communicate with us. This information may include, but is not limited to, email address, name, and any other information you choose to provide.</p>
@@ -31,13 +31,13 @@ function PrivacyPolicy() {
             <p>We value your trust in providing us your Personal Information. Thus, we strive to use commercially acceptable means of protecting it. However, no method of transmission over the internet or electronic storage is completely secure, so we cannot guarantee its absolute security.</p>
 
             <h2>7. Children's Privacy</h2>
-            <p>Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information without parental consent, please contact us at <a href="mailto:support@docubark.com">support@docubark.com</a>.</p>
+            <p>Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information without parental consent, please contact us at <a href="mailto:support@chromeextension.com">support@chromeextension.com</a>.</p>
 
             <h2>8. Changes to This Privacy Policy</h2>
             <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. It's encouraged to review this Privacy Policy periodically for any changes.</p>
 
             <h2>9. Contact Us</h2>
-            <p>If you have questions or suggestions about our Privacy Policy, do not hesitate to contact us at <a href="mailto:support@docubark.com">support@docubark.com</a>.</p>
+            <p>If you have questions or suggestions about our Privacy Policy, do not hesitate to contact us at <a href="mailto:support@chromeextension.com">support@chromeextension.com</a>.</p>
         </div>
     );
 }

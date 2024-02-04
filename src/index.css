@@ -2028,3 +2028,8 @@ DASHBOARD
 }
 
 .ant-table table { font-size: 12px;font-weight: 500; }
+
+.connect-with-gmail:hover{
+  border-color:var(--secondary-color) !important;
+color: var(--secondary-color) !important;
+ }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { store } from '../redux';
+// import { store } from '../redux';
 
 const authAxios = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL
@@ -13,7 +13,8 @@ authAxios.interceptors.request.use(
         // const idTokenKey = `CognitoIdentityServiceProvider.${process.env.REACT_APP_AUTH_USER_POOL_WEB_CLIENT_ID}.${lastAuthUser}.idToken`;
         // const idToken = Cookies.get(idTokenKey);
         // const accessToken = idToken;
-        const accessToken = store.getState()?.user?.user?.access_token;
+        // const accessToken = store.getState()?.user?.user?.access_token;
+        const accessToken = JSON.parse(Cookies.get('isAuthenticated'))?.access_token
         if (accessToken) {
             config.headers.authorization = `Bearer ${accessToken}`;
         }

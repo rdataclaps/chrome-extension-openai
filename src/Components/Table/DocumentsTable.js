@@ -109,6 +109,7 @@ const DocumentsTable = ({ handleFileSelection, chatSpecific }) => {
             </Link>
           )}
         />
+        
     </Table>
     </ConfigProvider>
   );

@@ -116,7 +116,7 @@ function Home() {
                 </h2>
               </div>
               <Link to="signup">
-                <button className="btn mt-5">Try Lil ChatGPT X for Free</button>
+                <button className="btn mt-5">Try Chrome Extension for Free</button>
               </Link>
             </div>
             <div className="banner_img">
@@ -221,7 +221,7 @@ function Home() {
                 <h2>Email Address</h2>
               </div>
               <div className="email">
-                <h1>support@lilchatgptx.com</h1>
+                <h1>support@chromeextension.com</h1>
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ const ProtectedRoutes = ({ element }) => {
     }
   }, [])
 
-  return isAuthenticated ? (
+  return isAuth ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />

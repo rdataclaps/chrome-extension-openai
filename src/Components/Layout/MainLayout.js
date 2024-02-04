@@ -82,11 +82,6 @@ const MainLayout = () => {
       navigate(`/${itemKey}`);
     }
   };
-
-  const handleGoogleApi =()=>{
-    dispatch(googleLogin())
-  }
-
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <AskForEmailDialogBox isModalOpen={true} />
@@ -96,6 +91,8 @@ const MainLayout = () => {
       >
         <div className="demo-logo-vertical logo">
           <h1 style={{color:"#3f3f46"}}>Chrome extension</h1>
+         {toggleBar && 
+         <BiX className="icons" onClick={() => setToggleBar(!toggleBar)}/>} 
         </div>
         <div className="side_bar_menu_list">
           <div className="sidebar_top"> 
@@ -128,9 +125,7 @@ const MainLayout = () => {
             </div> */}
           </div>
           <div className="sidebar_bottom">
-          <div>
-        <Button onClick={handleGoogleApi} type="primary" ghost>google api</Button>
-        </div>
+
             <Menu theme="dark" mode="inline" selectedKeys={[activeItem]}>
               {mainMenuItems2.map((menuItem) => (
                 <Menu.Item

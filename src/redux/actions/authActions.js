@@ -2,6 +2,7 @@ import { Auth } from 'aws-amplify';
 import { setUser, clearUser, loggedInUserIfToken} from './userActions';
 import authAxios from "../../services/authAxios";
 import Cookies from 'js-cookie';
+import axios from "axios"
 
 export const googleLogin = () => async (dispatch) => {
     try {
@@ -17,11 +18,22 @@ export const googleLogin = () => async (dispatch) => {
         };
     }
 };
+export const downloadPdf = ()=>async (dispatch)=>{
+    try {
+        const res = await authAxios.get('/download-pdf?email=sovianthwal@gmail.com')
+        console.log("DOWNLOAD_PDF:",res);
+    } catch (error) {
+        return {
+            success: false,
+            message: error?.message,
+        };
+    }
+}
 
 export const signin = (email, password) => async (dispatch) => {
     try {
-     const res = await authAxios.post('/login',{ email,password })
-
+    //  const res = await axios.post('/login',{ email,password })
+    const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`,{ email, password })
      if(res?.data){
          Cookies.set('isAuthenticated', JSON.stringify(res?.data))
      }

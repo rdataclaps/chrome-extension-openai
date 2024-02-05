@@ -55,7 +55,7 @@ const FileUploadForm = ({ chatSpecific }) => {
     // fileInput.click();
     if (uploadedFile) {
       setIsLoading(true);
-      dispatch(uploadFile(uploadedFile, chatSpecific))
+      dispatch(uploadFile(uploadedFile))
         .then(() => {
           setUploadedFile(null);
           setButtonText("Upload Documents");

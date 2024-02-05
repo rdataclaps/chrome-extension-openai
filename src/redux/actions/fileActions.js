@@ -9,19 +9,19 @@ export const getFiles = () => async (dispatch) => {
     }
 };
 
-export const uploadFile = (file, chatSpecific) => async (dispatch, getState) => {
+export const uploadFile = (file) => async (dispatch, getState) => {
     try {
-        const { currentChat } = getState().chat;
-        if (currentChat) {
+        // const { currentChat } = getState().chat;
+        // if (currentChat) {
             const formData = new FormData();
             formData.append('file', file);
-            formData.append('chat_id', chatSpecific ? currentChat.id : "null");
+            formData.append('chat_id', null);
             await authAxios.post('/train', formData);
             dispatch({ type: 'UPLOAD_FILE_SUCCESS' });
             dispatch(getFiles());
-        } else {
-            dispatch({ type: 'UPLOAD_FILE_ERROR', payload: "Must select chat" });
-        }
+        // } else {
+        //     dispatch({ type: 'UPLOAD_FILE_ERROR', payload: "Must select chat" });
+        // }
     } catch (error) {
         dispatch({ type: 'UPLOAD_FILE_ERROR', payload: error.message });
     }

@@ -3,6 +3,7 @@ import { setUser, clearUser, loggedInUserIfToken} from './userActions';
 import authAxios from "../../services/authAxios";
 import Cookies from 'js-cookie';
 import axios from "axios"
+import {store} from "../index"
 
 export const googleLogin = () => async (dispatch) => {
     try {
@@ -19,9 +20,26 @@ export const googleLogin = () => async (dispatch) => {
     }
 };
 export const downloadPdf = ()=>async (dispatch)=>{
+    let email = store.getState()?.user?.userData?.email;
+    let email_id;
+    if(email){
+        console.log(email)
+        email_id=email
+    }else{
+        let res = await authAxios.get('/me')
+        email_id = res.data.email
+    }
     try {
-        const res = await authAxios.get('/download-pdf?email=dheerajdataclaps@gmail.com')
-        console.log("DOWNLOAD_PDF:",res);
+        const res = await authAxios.get(`/download-pdf?email=${email_id}`)
+       
+        console.log(res.data?.download_url)
+        if(res.data?.download_url){
+          const res = await authAxios.get(`${res.data.download_url}`,{responseType:"blob"}) 
+        let blob = new Blob([res.data])
+        let url = window.URL.createObjectURL(blob,{oneTimeOnly:true})
+        window.open(url)
+        }
+
     } catch (error) {
         return {
             success: false,
@@ -32,16 +50,12 @@ export const downloadPdf = ()=>async (dispatch)=>{
 
 export const signin = (email, password) => async (dispatch) => {
     try {
-    //  const res = await axios.post('/login',{ email,password })
     const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`,{ email, password })
      if(res?.data){
          Cookies.set('isAuthenticated', JSON.stringify(res?.data))
      }
 
      dispatch(setUser(res?.data));
-     //  console.log(res.data)
-     // window.location.href="/dashboard"
-        // localStorage.setItem('_user', JSON.stringify(user));
         return { success: true, message: '' };
     } catch (error) {
         return {

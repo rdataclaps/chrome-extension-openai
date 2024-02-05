@@ -65,7 +65,7 @@ function GridViewMessages({ messages, isFetching }) {
   const showFullContext = (event, index, refer) => {
     const evref = refer.current.querySelector('.ev-message');
     const questionRef = refer.current.querySelector('.user-message');
-    const answerRef = refer.current.querySelector('.a-message');
+    const answerRef = refer.current.querySelector('.ai-message');
     evref.style.height = 'fit-content';
     answerRef.style.height = `${evref.clientHeight}px`;
     questionRef.style.height = `${evref.clientHeight}px`;
@@ -79,7 +79,7 @@ function GridViewMessages({ messages, isFetching }) {
   const showHideContext = (event, index, refer) => {
     const evref = refer.current.querySelector('.ev-message');
     const questionRef = refer.current.querySelector('.user-message');
-    const answerRef = refer.current.querySelector('.a-message');
+    const answerRef = refer.current.querySelector('.ai-message');
     answerRef.style.height = 'fit-content';
     evref.style.height = `${answerRef.clientHeight}px`;
     questionRef.style.height = `${answerRef.clientHeight}px`;
@@ -93,7 +93,7 @@ function GridViewMessages({ messages, isFetching }) {
   // set initial value for heights
   useEffect(() => {
     mainDivRefs.current.forEach((mainDivRef, index) => {
-      const answerRef = mainDivRef.current.querySelector('.a-message');
+      const answerRef = mainDivRef.current.querySelector('.ai-message');
       const contextRef = mainDivRef.current.querySelector('.ev-message');
 
       if (dataPairs[index]['aiMessageHeight'] === 0 && dataPairs[index]['evMessageHeight'] === 0) {
@@ -110,7 +110,7 @@ function GridViewMessages({ messages, isFetching }) {
   useEffect(() => {
     mainDivRefs.current.forEach((mainDivRef, index) => {
       const questionRef = mainDivRef.current.querySelector('.user-message');
-      const answerRef = mainDivRef.current.querySelector('.a-message');
+      const answerRef = mainDivRef.current.querySelector('.ai-message');
       const contextRef = mainDivRef.current.querySelector('.ev-message');
 
       const defaultHeight = answerRef.clientHeight;
@@ -134,7 +134,7 @@ function GridViewMessages({ messages, isFetching }) {
           {isFetching && index === dataPairs.length - 1 ? (
             <AIMessageLoader />
           ) : (
-            <div className='message a-message' style={{ flex: `0 0 ${columnWidth}px`, height: 'fit-content' }}>
+            <div className='message ai-message' style={{ flex: `0 0 ${columnWidth}px`, height: 'fit-content' }}>
               <div className="message-content">{pair.answer}</div>
             </div>
           )}
@@ -147,16 +147,16 @@ function GridViewMessages({ messages, isFetching }) {
             <div className='message ev-message' style={{marginRight: '10px', overflow: 'hidden', padding: '5px', position: 'relative'}}>
               {
                 !isOpen[index] ? (
-                  <div style={{ paddingLeft:'87%', backgroundColor: 'rgb(29, 31, 33)', paddingRight:'3%', borderRadius:'2px'}}>
+                  <div style={{ paddingLeft:'87%', backgroundColor: 'rgb(202 203 204)', paddingRight:'3%', borderRadius:'2px'}}>
                     <SlArrowDown style={{paddingLeft:'4px'}} onClick={(e) => showFullContext(e, index, mainDivRefs.current[index])} />
                   </div>
                 ) : (
-                  <div style={{ paddingLeft:'87%', backgroundColor: 'rgb(29, 31, 33)', paddingRight:'3%', borderRadius:'2px'}}>
+                  <div style={{ paddingLeft:'87%', backgroundColor: 'rgb(202 203 204)', paddingRight:'3%', borderRadius:'2px'}}>
                     <SlArrowUp  style={{paddingLeft:'4px'}} onClick={(e) => showHideContext(e, index, mainDivRefs.current[index])} />
                   </div>
                 )
               }
-              {pair.evidence.page_content.map((content, i) => <div className="message-evidence">
+              {pair.evidence.page_content.map((content, i) => <div className="message-evidence" key={i}>
                   <b>{pair.evidence.metadata[i].filename}, page #{pair.evidence.metadata[i].page}</b>
                   <p>"{content}"</p>
               </div>)}

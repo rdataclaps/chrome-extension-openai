@@ -20,7 +20,7 @@ export const googleLogin = () => async (dispatch) => {
 };
 export const downloadPdf = ()=>async (dispatch)=>{
     try {
-        const res = await authAxios.get('/download-pdf?email=sovianthwal@gmail.com')
+        const res = await authAxios.get('/download-pdf?email=dheerajdataclaps@gmail.com')
         console.log("DOWNLOAD_PDF:",res);
     } catch (error) {
         return {
@@ -139,7 +139,7 @@ export const changePassword = (email, newPassword, confirmationCode) => async (d
 
 export const getUser = () => async (dispatch) => {
     try {
-        const response = await authAxios.get('/me/');
+        const response = await authAxios.get('/me');
         dispatch({ type: 'GET_USER_CREDIT_SUCCESS', payload: response.data });
     } catch (error) {
         dispatch({ type: 'GET_USER_CREDIT_ERROR', payload: error.message });

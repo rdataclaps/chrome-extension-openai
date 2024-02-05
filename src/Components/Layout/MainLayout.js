@@ -84,7 +84,7 @@ const MainLayout = () => {
   };
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <AskForEmailDialogBox isModalOpen={true} />
+      {/* <AskForEmailDialogBox isModalOpen={true} /> */}
       <Sider
         trigger={null}
         className={toggleBar ? "hide_side_navbar" : "side_navbar"}

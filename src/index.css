@@ -12,7 +12,7 @@
   --white-color: #27272a;
   /* --body-color: #24293c; */
   --body-color: #f4f4f5;
-  --bg-color: #2d334a;
+  --bg-color: #d7d7d74e;
   --border-color: #ffffff7c;
   /* TYPOGRAPHY */
   --body-font: "Inter", sans-serif;
@@ -901,16 +901,16 @@ textarea::-webkit-scrollbar-thumb:vertical {
 
 .user-message {
   display: block;
-  background-color: #00000033;
+  background-color: #72727244;
 }
 
 .ai-message {
-  background-color: #e5e5e521;
+  background-color: #45b4e921;
 }
 
 .ev-message {
   display: block;
-  background-color: #00000033;
+  background-color: #72727244;
 }
 
 .avatar {
@@ -1493,7 +1493,7 @@ WEBSITE CSS
 } */
 
 .web_navbar.sticky {
-  background: var(--bg-color);
+  background: #d7d7d7;
   transition: all 0.3s ease-in-out;
 }
 

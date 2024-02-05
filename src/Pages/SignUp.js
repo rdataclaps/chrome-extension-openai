@@ -36,7 +36,8 @@ function SignUp() {
     e.preventDefault();
     const result = await dispatch(signup(username, email, password));
     if (result.success) {
-      navigate("/verification", { state: { password } });
+      // navigate("/verification", { state: { password } });
+      navigate("/login");
     } else {
       // alert(result.message);
       console.log(result)
@@ -53,12 +54,12 @@ function SignUp() {
   return (
     <div className="logIn_page">
       <div className="row">
-        <div className="col-lg-5 col-md-12 col-sm-12">
+        {/* <div className="col-lg-5 col-md-12 col-sm-12">
           <div className="login_img">
             <img src={Login_img} alt="" />
           </div>
-        </div>
-        <div className="col-lg-7 col-md-12 col-sm-12">
+        </div> */}
+        <div className="col-lg-12 col-md-12 col-sm-12">
           <div className="login_form">
             <div className="login_header">
               <Link to="/">
@@ -103,18 +104,15 @@ function SignUp() {
                   <button className="btn" type="submit">Create Account</button>
                 {/* </Link> */}
               </form>
-              <div className="social_media">
+              {/* <div className="social_media">
                 <p>Or continue with</p>
                 <div className="social_group">
                   <div className="social_group_btn" style={{width: '100%'}} onClick={googleSignIn}>
                     <FcGoogle className="icons" />
                     <span style={{display: 'block'}}>Sign up with Google</span>
                   </div>
-                  {/* <Link to="#">
-                    <FaFacebook className="icons fb_icon" /> Facebook
-                  </Link> */}
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="logIn_footer">
               <Link to="/privacy-policy">Privacy Policy</Link>

@@ -18,7 +18,7 @@ export const getMessages = (chatId, signal) => async (dispatch) => {
 
 export const createMessage = (message, signal) => async (dispatch) => {
     try {
-        const response = await authAxios.post('/chat-queries', message, {
+        const response = await authAxios.post('/chat/queries', message, {
             signal,
         });
         dispatch({ type: 'CREATE_CHAT_MESSAGE_SUCCESS', payload: response.data });

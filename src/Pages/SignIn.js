@@ -85,7 +85,7 @@ function SignIn() {
   return (
     <div className="logIn_page">
       <div className="row">
-        <div className="col-lg-7 col-md-12 col-sm-12">
+        <div className="col-lg-12 col-md-12 col-sm-12">
           <div className="login_form">
             <div className="login_header">
               <Link to="/">
@@ -135,7 +135,7 @@ function SignIn() {
                 </button>
                 {/* </Link> */}
               </form>
-              <div className="social_media">
+              {/* <div className="social_media">
                 <p>Or continue with</p>
                 <div className="social_group">
                   <div
@@ -148,12 +148,8 @@ function SignIn() {
                       Sign in with Google
                     </span>
                   </div>
-                  {/* <div className="social_group_btn">
-                    <FaFacebook className="icons fb_icon" />
-                    <span style={{display: 'block'}}>Facebook</span>
-                  </div> */}
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="logIn_footer">
               <Link to="/privacy-policy">Privacy Policy</Link>
@@ -163,11 +159,11 @@ function SignIn() {
             </div>
           </div>
         </div>
-        <div className="col-lg-5 col-md-12 col-sm-12">
+        {/* <div className="col-lg-5 col-md-12 col-sm-12">
           <div className="login_img">
             <img src={Login_img} alt="" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

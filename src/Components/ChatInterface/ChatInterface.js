@@ -194,7 +194,7 @@ const ChatInterface = ({ selectedFileIds, chatSpecific }) => {
         .filter(ques => ques.trim() !== "")
         .map(ques => ({
           data_ids: selectedFileIds,
-          current_id: currentChat?.id,
+          chat_id: currentChat?.id,
           query: ques.trim(),
           context: "true"
         }));

@@ -28,6 +28,16 @@ const initialState = {
           ...state,
           error: action.payload,
         };
+      case 'DOWNLOAD_FILE_SUCCESS':
+        return {
+          ...state,
+          error: null,
+        };
+      case 'DOWNLOAD_FILE_ERROR':
+        return {
+          ...state,
+          error: action.payload,
+        };
       case 'DELETE_FILE_SUCCESS':
         console.log("HERE: ", action.payload);
         const updatedFiles = state.files.filter(file => file.id !== action.payload);

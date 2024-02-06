@@ -19,27 +19,21 @@ export const googleLogin = () => async (dispatch) => {
         };
     }
 };
-export const downloadPdf = ()=>async (dispatch)=>{
-    let email = store.getState()?.user?.userData?.email;
-    let email_id;
-    if(email){
-        console.log(email)
-        email_id=email
-    }else{
-        let res = await authAxios.get('/me')
-        email_id = res.data.email
-    }
+export const downloadPdf = (setIsDisable)=>async (dispatch)=>{
+    let email_id = store.getState()?.user?.userData?.email;
+  
     try {
-        const res = await authAxios.get(`/download-pdf?email=${email_id}`)
-       
-        console.log(res.data?.download_url)
-        if(res.data?.download_url){
-          const res = await authAxios.get(`${res.data.download_url}`,{responseType:"blob"}) 
-        let blob = new Blob([res.data])
-        let url = window.URL.createObjectURL(blob,{oneTimeOnly:true})
-        window.open(url)
-        }
-
+        authAxios.get(`/download-pdf?email=${email_id}`).then(res=>{
+            if(res?.data?.download_url){
+                authAxios.get(`${res.data.download_url}`,{responseType: "blob"}).then(res=>{
+                    let blob = new Blob([res.data],{type: res.data.type})
+                    let url = window.URL.createObjectURL(blob, {oneTimeOnly: true})
+                    window.open(url)
+                    setIsDisable(false)
+                })
+            }
+        })
+    
     } catch (error) {
         return {
             success: false,

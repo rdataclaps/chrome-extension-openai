@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import axios from "axios"
 import {store} from "../index"
 import { toast } from 'react-toastify';
+import { getFiles } from './fileActions';
 
 export const googleLogin = () => async (dispatch) => {
     try {
@@ -20,21 +21,42 @@ export const googleLogin = () => async (dispatch) => {
         };
     }
 };
-export const downloadPdf = (email)=>async (dispatch)=>{
+export const downloadPdf = (email) => async (dispatch)=>{
     // let email_id = store.getState()?.user?.userData?.email;
   
     try {
-        authAxios.get(`/download-pdf?email=${email}`).then(res=>{
-            if(res?.data?.download_url){
-                authAxios.get(`${res.data.download_url}`,{responseType: "blob"}).then(res=>{
-                    let blob = new Blob([res.data],{type: res.data.type})
-                    let url = window.URL.createObjectURL(blob, {oneTimeOnly: true})
-                    window.open(url)
-                })
+        const res = await authAxios.get(`/download-pdf?email=${email}`);
+        if (res.data?.download_url) {
+            try {
+                const fileData = await authAxios.get(`${res.data.download_url}`,{responseType: "blob"});
+                let blob = new Blob([fileData.data],{type: fileData.data.type});
+                // let url = window.URL.createObjectURL(blob, {oneTimeOnly: true});
+                // window.open(url)
+                const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+            a.href = url;
+            a.download = 'document.pdf'; 
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+                dispatch(getFiles());
+            } catch (e) {
+                console.log(e);
+                dispatch(getFiles());
+                return {
+                    success: false,
+                    message: e?.message,
+                };
             }
-        })
+        } else {
+            return {
+                success: false,
+                message: 'invalid data',
+            };
+        }
     
     } catch (error) {
+        console.log(error)
         return {
             success: false,
             message: error?.message,

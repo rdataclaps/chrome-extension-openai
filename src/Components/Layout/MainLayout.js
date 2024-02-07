@@ -17,6 +17,7 @@ import Topbar from "./Topbar";
 const { Header, Sider, Content } = Layout;
 
 const MainLayout = () => {
+  const {showEmailPopUp} = useSelector((state)=>state.user)
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -84,13 +85,13 @@ const MainLayout = () => {
   };
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      {/* <AskForEmailDialogBox isModalOpen={true} /> */}
+      {showEmailPopUp && <AskForEmailDialogBox isModalOpen={true} />}
       <Sider
         trigger={null}
         className={toggleBar ? "hide_side_navbar" : "side_navbar"}
       >
         <div className="demo-logo-vertical logo">
-          <h1 style={{color:"#3f3f46"}}>Chrome extension</h1>
+          <h1 style={{color:"#3f3f46"}}>ASKMAIL</h1>
          {toggleBar && 
          <BiX className="icons" onClick={() => setToggleBar(!toggleBar)}/>} 
         </div>

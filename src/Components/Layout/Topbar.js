@@ -4,25 +4,25 @@ import Logo from "../assets/Icons/Logo.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import {Button} from "antd"
 import { downloadPdf, googleLogin } from "../../redux/actions/authActions";
+import { openEmailBox } from "../../redux/actions/userActions";
 
 function Topbar() {
-  const [isDisable,setIsDisable] = useState(false)
   const dispatch = useDispatch()
   const attributes = useSelector((state) => state.user.user);
   const handleGoogleApi =()=>{
     dispatch(googleLogin())
   }
   const handleDownloadPDF =()=>{
-    setIsDisable(true)
-    dispatch(downloadPdf(setIsDisable))
+    // dispatch(downloadPdf())
+    dispatch(openEmailBox(true))
   }
 
   return (
     <div className="topbar_nav_item">
       <div className="logo" style={{display:"flex",justifyContent:"space-between"}}>
-      {/* <h1>Chrome extension</h1> */}
+      {/* <h1>askmail</h1> */}
       <div>
-        <Button className="connect-with-gmail" onClick={handleDownloadPDF} type="primary" ghost disabled={isDisable}>Download PDF</Button>
+        <Button className="connect-with-gmail" onClick={handleDownloadPDF} type="primary" ghost>Download PDF</Button>
         </div>
       <div>
         <Button className="connect-with-gmail" onClick={handleGoogleApi} type="primary" ghost>Connect with Gmail</Button>

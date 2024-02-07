@@ -42,7 +42,7 @@ function Home() {
         <div className="container">
           <nav>
             <div className="logo">
-              <h1>Chrome extension</h1>
+              <h1>ASK MAIL</h1>
             </div>
             <ul className={`nav_menu ${isActive ? "active" : ""}`}>
               <li className="nav_list">
@@ -67,17 +67,7 @@ function Home() {
                   Features
                 </ScrollLink>
               </li>
-              <li className="nav_list">
-                <ScrollLink
-                  to="pricing"
-                  smooth={true}
-                  duration={500}
-                  offset={-50}
-                  className="nav_link"
-                >
-                  Pricing
-                </ScrollLink>
-              </li>
+            
               <li className="nav_list">
                 <ScrollLink
                   to="email_address"
@@ -109,14 +99,10 @@ function Home() {
           <div className="container">
             <div className="banner_text">
               <div className="text">
-                <h1>Unlock Insights Directly From Your Documents</h1>
-                <h2 className="mt-2">
-                  Leverage Generative AI To Instantly Retrieve Answers From Your
-                  Documents
-                </h2>
+                <h1>Ask Anything From Your Email</h1>
               </div>
               <Link to="signup">
-                <button className="btn mt-5">Try Chrome Extension for Free</button>
+                <button className="btn mt-5">Try ASK MAIL for Free</button>
               </Link>
             </div>
             <div className="banner_img">
@@ -173,47 +159,6 @@ function Home() {
           </div>
         </section>
 
-        {/* Pricing */}
-
-        <section className="pricing" id="pricing">
-          <div className="container">
-            <div className="section_title">
-              <h2>Pricing</h2>
-            </div>
-            <div className="row mt-5">
-              <div className="col-lg-4 col-md-6 col-sm-12 mt-4">
-                <div className="card">
-                  <h2>100 Credits</h2>
-                  <h2 className="mt-3">$5</h2>
-                  <Link to="signup" className="btn">
-                    Free Trial - No Credit Card Required
-                  </Link>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-12 mt-4">
-                <div className="card">
-                  <h2>200 Credits</h2>
-                  <h2 className="mt-3">$10</h2>
-                  <Link to="signup" className="btn">
-                    Free Trial - No Credit Card Required
-                  </Link>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-12 mt-4">
-                <div className="card">
-                  <h2>300 Credits</h2>
-                  <h2 className="mt-3">$20</h2>
-                  <Link to="signup" className="btn">
-                    Free Trial - No Credit Card Required
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing */}
-
         <section className="email_address" id="email_address">
           <div className="container">
             <div className="email_area">
@@ -221,7 +166,7 @@ function Home() {
                 <h2>Email Address</h2>
               </div>
               <div className="email">
-                <h1>support@chromeextension.com</h1>
+                <h1>support@askmail.com</h1>
               </div>
             </div>
           </div>
@@ -232,7 +177,7 @@ function Home() {
         <section className="footer">
           <div className="container">
             <div className="logo">
-            <h1>Chrome extension</h1>
+            <h1>ASK MAIL</h1>
             </div>
             <hr />
             <ul className="nav_menu">
@@ -258,17 +203,7 @@ function Home() {
                   Features
                 </ScrollLink>
               </li>
-              <li className="nav_list">
-                <ScrollLink
-                  to="pricing"
-                  smooth={true}
-                  duration={500}
-                  offset={-50}
-                  className="nav_link"
-                >
-                  Pricing
-                </ScrollLink>
-              </li>
+             
               <li className="nav_list">
                 <ScrollLink
                   to="email_address"

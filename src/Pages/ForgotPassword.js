@@ -48,7 +48,7 @@ function ForgotPassword() {
             <div className="login_header">
               <Link to="/">
                 {" "}
-                <h2>Chrome Extension</h2>
+                <h2>ASK MAIL</h2>
               </Link>
               <div className="lang_selector">
                 <p>

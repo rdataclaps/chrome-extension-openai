@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import LogInputField from "../Components/InputField/LogInputField";
 import PasswordInput from "../Components/InputField/PasswordInput";
 import Logo from "../Components/assets/Icons/Logo.svg";
 import Login_img from "../Components/assets/Images/Login.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../redux/actions/authActions";
 import { toast } from 'react-toastify';
 import { Auth } from 'aws-amplify';
@@ -19,6 +19,7 @@ function SignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {isNesRegistration} = useSelector((state)=>state.user)
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -34,15 +35,7 @@ function SignUp() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    const result = await dispatch(signup(username, email, password));
-    if (result.success) {
-      // navigate("/verification", { state: { password } });
-      navigate("/login");
-    } else {
-      // alert(result.message);
-      console.log(result)
-      toast.error(`Sign-up failed. ${result.message}`);
-    }
+  dispatch(signup(username, email, password));
   };
 
   const googleSignIn = () => {
@@ -50,7 +43,11 @@ function SignUp() {
       provider: CognitoHostedUIIdentityProvider.Google
     });
   }
-
+useEffect(()=>{
+if(isNesRegistration){
+  navigate("/login")
+}
+},[isNesRegistration])
   return (
     <div className="logIn_page">
       <div className="row">
@@ -63,7 +60,7 @@ function SignUp() {
           <div className="login_form">
             <div className="login_header">
               <Link to="/">
-              <h2>Chrome extension</h2>
+              <h2>ASK MAIL</h2>
               </Link>
               <div className="lang_selector">
                 <p>
@@ -73,7 +70,7 @@ function SignUp() {
             </div>
             <div className="form_area">
               <div className="mb-5">
-                <h1>Get Started With Chrome extension</h1>
+                <h1>Get Started With ASK MAIL</h1>
                 <p className="mt-2 desc">
                   <b>Create your account</b>
                 </p>

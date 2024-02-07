@@ -55,7 +55,7 @@ function ResetPassword() {
         <div className="col-lg-7 col-md-12 col-sm-12">
           <div className="login_form">
             <div className="login_header">
-              <h2>Chrome Extension</h2>
+              <h2>ASK MAIL</h2>
               <div className="lang_selector">
                 <p>
                   Don’t have an account? <Link to="/">Sign In!</Link>

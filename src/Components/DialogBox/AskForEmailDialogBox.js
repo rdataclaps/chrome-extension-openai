@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import { Modal, Form, Input, Button } from "antd";
 import InputField from "../InputField/InputField";
+import { useDispatch } from "react-redux";
+import { openEmailBox } from "../../redux/actions/userActions";
+import { downloadPdf } from "../../redux/actions/authActions";
 
 const AskForEmailDialogBox = ({ isModalOpen }) => {
+  const dispatch = useDispatch()
   const [isOpen, setisOpen] = useState(isModalOpen);
   const [email, setEmail] = useState("");
-  const showModal = () => {
-    setisOpen(true);
-  };
 
   const handleCancel = () => {
+    dispatch(openEmailBox(false))
     setisOpen(false);
   };
   const handleSubmit=(e)=>{
     e.preventDefault()
-    alert(email)
+        dispatch(downloadPdf(email))
+        setEmail("")
+        // dispatch(openEmailBox(false))
+        // setisOpen(false);
   }
   return (
     <>

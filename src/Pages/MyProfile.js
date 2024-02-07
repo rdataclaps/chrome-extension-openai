@@ -68,7 +68,7 @@ function MyProfile() {
               <p>Website</p> <p>Weekly Email</p>
             </div>
             <div className="item">
-              <Link to="https://www.chromeextension.com">www.chromeextension.com</Link>
+              <Link to="https://www.askmail.com">www.askmail.com</Link>
               <Toggle/>
             </div>
           </div>

@@ -177,7 +177,7 @@ function Billing() {
                   <div className="receipt_area">
                     <div className="hader_c_name">
                       <p>
-                        <b>Chrome Extension</b>
+                        <b>ASKMAIL</b>
                       </p>
                     </div>
                     <hr />
@@ -226,7 +226,7 @@ function Billing() {
                   <div className="receipt_area">
                     <div className="hader_c_name">
                       <p>
-                        <b>Chrome Extension</b>
+                        <b>ASKMAIL</b>
                       </p>
                     </div>
                     <hr />

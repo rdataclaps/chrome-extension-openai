@@ -9,6 +9,8 @@ const initialState = {
   changePasswordSuccess: false,
   changePasswordError: null,
   error: null,
+  isNesRegistration:null,
+  showEmailPopUp:false
 };
   
 const userReducer = (state = initialState, action) => {
@@ -74,6 +76,16 @@ const userReducer = (state = initialState, action) => {
         ...state,
         userData: null,
         error: action.payload,
+      };
+    case 'SET_NEW_REGISTRATION':
+      return {
+        ...state,
+        isNesRegistration:action.payload
+      };
+    case 'SHOW_EMAIL_POP_UP':
+      return {
+        ...state,
+        showEmailPopUp:action.payload
       };
   
     default:

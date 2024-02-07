@@ -90,7 +90,7 @@ function SignIn() {
             <div className="login_header">
               <Link to="/">
                 {" "}
-                <h2>Chrome extension</h2>
+                <h2>ASK MAIL</h2>
               </Link>
               <div className="lang_selector">
                 <p>

@@ -1,9 +1,10 @@
 import { Auth } from 'aws-amplify';
-import { setUser, clearUser, loggedInUserIfToken} from './userActions';
+import { setUser, clearUser, loggedInUserIfToken, setNewRegistraion} from './userActions';
 import authAxios from "../../services/authAxios";
 import Cookies from 'js-cookie';
 import axios from "axios"
 import {store} from "../index"
+import { toast } from 'react-toastify';
 
 export const googleLogin = () => async (dispatch) => {
     try {
@@ -19,17 +20,16 @@ export const googleLogin = () => async (dispatch) => {
         };
     }
 };
-export const downloadPdf = (setIsDisable)=>async (dispatch)=>{
-    let email_id = store.getState()?.user?.userData?.email;
+export const downloadPdf = (email)=>async (dispatch)=>{
+    // let email_id = store.getState()?.user?.userData?.email;
   
     try {
-        authAxios.get(`/download-pdf?email=${email_id}`).then(res=>{
+        authAxios.get(`/download-pdf?email=${email}`).then(res=>{
             if(res?.data?.download_url){
                 authAxios.get(`${res.data.download_url}`,{responseType: "blob"}).then(res=>{
                     let blob = new Blob([res.data],{type: res.data.type})
                     let url = window.URL.createObjectURL(blob, {oneTimeOnly: true})
                     window.open(url)
-                    setIsDisable(false)
                 })
             }
         })
@@ -64,21 +64,20 @@ export const signin = (email, password) => async (dispatch) => {
 
 export const signup = (username, email, password) => async (dispatch) => {
     try {
-        const user = await Auth.signUp({
-            username: email,
+        let payload = {
+            email: email,
             password: password,
             attributes: {
                 name: username,
-            },
-        });
-        dispatch(setUser(user));
-        // localStorage.setItem('_user', JSON.stringify(user));
-        return { success: true, message: '' };
+            }
+        }
+        const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/register`, payload);
+        if(res?.data){
+            dispatch(setUser(res?.data));
+            dispatch(setNewRegistraion(true))
+        }
     } catch (error) {
-        return {
-            success: false,
-            message: error?.message,
-        };
+       toast.error(`Sign-up failed. ${error?.message}`)
     }
 };
 

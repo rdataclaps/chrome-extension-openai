@@ -2,9 +2,9 @@ export const setUser = (user) => ({
     type: 'SET_USER',
     payload: user,
 });
-export const setNewRegistraion = (payload) => ({
+export const setNewRegistraion = (payload,payload2) => ({
     type: 'SET_NEW_REGISTRATION',
-    payload: payload,
+    payload: payload,payload2,
 });
 
 export const clearUser = () => ({
@@ -19,3 +19,4 @@ export const openEmailBox = (data) => ({
     type: 'SHOW_EMAIL_POP_UP',
     payload: data
 });
+

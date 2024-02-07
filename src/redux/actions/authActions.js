@@ -73,8 +73,8 @@ export const signup = (username, email, password) => async (dispatch) => {
         }
         const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/register`, payload);
         if(res?.data){
-            dispatch(setUser(res?.data));
-            dispatch(setNewRegistraion(true))
+            // dispatch(setUser(res?.data));
+            dispatch(setNewRegistraion(res?.data,true))
         }
     } catch (error) {
        toast.error(`Sign-up failed. ${error?.message}`)

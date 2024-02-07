@@ -19,7 +19,7 @@ function SignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {isNesRegistration} = useSelector((state)=>state.user)
+  const {isNewRegistration} = useSelector((state)=>state.user)
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -44,10 +44,10 @@ function SignUp() {
     });
   }
 useEffect(()=>{
-if(isNesRegistration){
+if(isNewRegistration){
   navigate("/login")
 }
-},[isNesRegistration])
+},[isNewRegistration])
   return (
     <div className="logIn_page">
       <div className="row">

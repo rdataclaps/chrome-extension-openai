@@ -9,11 +9,11 @@ import { getFiles } from './fileActions';
 
 export const googleLogin = () => async (dispatch) => {
     try {
-     const res = await authAxios.get('/login/google')
+        const res = await authAxios.get('/login/google')
 
-     if(res?.data.url){
-             window.open(res.data.url,'_blank')
-     }
+        if(res?.data.url){
+            window.open(res.data.url)
+        }
     } catch (error) {
         return {
             success: false,
@@ -111,7 +111,7 @@ export const signup = (username, email, password) => async (dispatch) => {
         }
     } catch (error) {
     if (error.response) {
-        const errorMessage = error.response.data.message || 'Unknown error occurred';
+        const errorMessage = error.response.data.detail || 'Unknown error occurred';
         toast.error(`Sign-up failed: ${errorMessage}`);
     } else if (error.request) {
         toast.error('Network error. Please check your internet connection.');

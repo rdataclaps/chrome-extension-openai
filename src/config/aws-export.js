@@ -17,8 +17,8 @@
 //                 'openid',
 //                 'profile'
 //             ],
-//             redirectSignIn: 'https://docubark.com/auth', // or localhost:3000
-//             redirectSignOut: 'https://docubark.com/login',
+//             redirectSignIn: '', // or localhost:3000
+//             redirectSignOut: '',
 //             responseType: 'code', // or 'token',
 //             federationTarget: 'COGNITO_USER_POOLS'
 //         },

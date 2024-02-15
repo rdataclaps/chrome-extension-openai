@@ -12,7 +12,8 @@ export const googleLogin = () => async (dispatch) => {
         const res = await authAxios.get('/login/google')
 
         if(res?.data.url){
-            window.open(res.data.url)
+            // window.open(res.data.url)
+            window.location.href = res.data.url;
         }
     } catch (error) {
         return {

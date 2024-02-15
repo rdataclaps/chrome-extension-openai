@@ -215,6 +215,8 @@ function Home() {
                   Contact
                 </ScrollLink>
               </li>
+              <li><Link to="/tos">Terms</Link></li>
+              <li><Link to="/privacy-policy">Privacy</Link></li>
             </ul>
           </div>
         </section>

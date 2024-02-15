@@ -4,7 +4,7 @@ function TOS() {
     return (
         <div className="tos-container">
             <h1>Terms of Service for ASK MAIL</h1>
-            <p><strong>Last updated: Sept 29, 2023</strong></p>
+            <p><strong>Last updated: Feb 15, 2024</strong></p>
             
             <h2>1. Acceptance of Terms</h2>
             <p>By accessing and using ASK MAIL, you agree to comply with and be bound by these Terms of Service ("ToS"). If you do not agree to these ToS, please do not use our service.</p>

@@ -127,10 +127,10 @@ const FileUploadForm = ({ chatSpecific }) => {
           <Dropzone onDrop={handleDrop} accept={{
             // image:['.jpg', '.jpeg', '.png', '.svg'],
             'application/pdf': ['.pdf'],
-            'text/plain': ['.txt'],
-            'application/vnd.ms-excel': ['.xls'],
+            // 'text/plain': ['.txt'],
+            // 'application/vnd.ms-excel': ['.xls'],
             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'],
-            'application/msword': ['.doc'],
+            // 'application/msword': ['.doc'],
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx']
             }}>
             {({ getRootProps, getInputProps }) => (

@@ -5,7 +5,7 @@ function PrivacyPolicy() {
         <div className="privacy-policy-container">
             <h1>Privacy Policy for ASK MAIL</h1>
             
-            <p><strong>Last updated: Sept 29, 2023</strong></p>
+            <p><strong>Last updated: Feb 15, 2024</strong></p>
 
             <h2>1. Introduction</h2>
             <p>Welcome to ASK MAIL. We respect your privacy and want to protect your personal data. This Privacy Policy will tell you how we collect, use, and protect your data.</p>

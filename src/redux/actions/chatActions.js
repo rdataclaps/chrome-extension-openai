@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import authAxios from "../../services/authAxios";
 
 export const getChats = () => async (dispatch) => {
@@ -16,6 +17,14 @@ export const createChat = (chat) => async (dispatch) => {
         dispatch(getChats());
     } catch (error) {
         dispatch({ type: 'CREATE_CHAT_ERROR', payload: error.message });
+        console.log(error)
+        if (error.response) {
+            toast.error(`${error.response.data.detail}`);
+        } else if (error.request) {
+            toast.error(`${error.message}, Check Your Connection..`);
+        } else {
+            toast.error(`Unable to create chat: ${error.message}`);
+        }
     }
 };
 

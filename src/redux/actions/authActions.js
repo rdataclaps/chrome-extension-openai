@@ -57,6 +57,7 @@ export const downloadPdf = (email) => async (dispatch)=>{
     
     } catch (error) {
         console.log(error)
+        toast.error(`Unable to Download: ${error.response.data.detail}`);
         return {
             success: false,
             message: error?.message,
@@ -69,15 +70,25 @@ export const signin = (email, password) => async (dispatch) => {
     const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`,{ email, password })
      if(res?.data){
          Cookies.set('isAuthenticated', JSON.stringify(res?.data))
-     }
+         dispatch(setUser(res?.data));
+         return { success: true, message: '' };
+     }else {
+        toast.error('Sign-in failed: No data received from the server.');
+        return { success: false, message: 'No data received from the server.' };
+    }
 
-     dispatch(setUser(res?.data));
-        return { success: true, message: '' };
     } catch (error) {
-        return {
-            success: false,
-            message: error?.message,
-        };
+        console.log(error.message)
+        if (error.response) {
+            toast.error(`Sign-in failed: ${error.response.data.detail}`);
+            return { success: false, message: error.response.data.detail };
+        } else if (error.request) {
+            toast.error('Sign-in failed: No response received from the server.');
+            return { success: false, message: 'No response received from the server.' };
+        } else {
+            toast.error(`Sign-in failed: ${error.message}`);
+            return { success: false, message: error?.message };
+        }
     }
 };
 
@@ -99,7 +110,15 @@ export const signup = (username, email, password) => async (dispatch) => {
             dispatch(setNewRegistraion(res?.data,true))
         }
     } catch (error) {
-       toast.error(`Sign-up failed. ${error?.message}`)
+    if (error.response) {
+        const errorMessage = error.response.data.message || 'Unknown error occurred';
+        toast.error(`Sign-up failed: ${errorMessage}`);
+    } else if (error.request) {
+        toast.error('Network error. Please check your internet connection.');
+    } else {
+        toast.error(`Sign-up failed: ${error.message}`);
+    }
+    console.error('API Error:', error);
     }
 };
 

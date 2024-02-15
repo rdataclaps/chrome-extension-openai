@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import authAxios from "../../services/authAxios";
 
 export const getFiles = () => async (dispatch) => {
@@ -24,12 +25,13 @@ export const uploadFile = (file) => async (dispatch, getState) => {
         // }
     } catch (error) {
         dispatch({ type: 'UPLOAD_FILE_ERROR', payload: error.message });
+        toast.error(`${error.message}`);
     }
 };
 
 export const deleteFile = (data_id, file_name, customer_id) => async (dispatch) => {
     try {
-        const response = await authAxios.post('delete', { data_id, file_name, customer_id });
+        const response = await authAxios.post('train/delete', { data_id, file_name, customer_id });
         dispatch({ type: 'DELETE_FILE_SUCCESS', payload: data_id });
     } catch (error) {
         dispatch({ type: 'DELETE_FILE_ERROR', payload: error.message });

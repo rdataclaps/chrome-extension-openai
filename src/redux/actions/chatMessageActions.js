@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import authAxios from "../../services/authAxios";
 import { getUser } from "./authActions";
 
@@ -8,11 +9,13 @@ export const getMessages = (chatId, signal) => async (dispatch) => {
         dispatch({ type: 'GET_CHAT_MESSAGE_SUCCESS', payload: response.data });
         dispatch(getUser());
     } catch (error) {
+        console.log(error)
         if (error.name === 'AbortError') {
             console.log("aborting.........")
         } else {
             dispatch({ type: 'GET_CHAT_MESSAGE_ERROR', payload: error.message });
         }
+        toast.error(`${error.message}`);
     }
 };
 

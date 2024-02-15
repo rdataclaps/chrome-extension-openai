@@ -25,7 +25,7 @@ const MainLayout = () => {
 
   const mainMenuItems = [
     {
-      key: "dashboard1",
+      key: "dashboard",
       icon: <RxDashboard />,
       label: "Dashboard",
     },
@@ -68,7 +68,7 @@ const MainLayout = () => {
 
   useEffect(() => {
     const currentPath = location.pathname.split("/")[1];
-    setActiveItem(currentPath || "dashboard1");
+    setActiveItem(currentPath || "dashboard");
   }, [location.pathname]);
 
   useEffect(() => {

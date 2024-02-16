@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import user from "../assets/Images/Avatar/new_user.png";
 import Logo from "../assets/Icons/Logo.svg";
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,13 +17,32 @@ function Topbar() {
     dispatch(openEmailBox(true))
   }
 
+
+  const [previousUrl, setPreviousUrl] = useState('');
+
+  useEffect(() => {
+    const handleNavigation = () => {
+      setPreviousUrl(window.location.href);
+    };
+
+    // Listen for the beforeunload event to detect page navigation
+    window.addEventListener('beforeunload', handleNavigation);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('beforeunload', handleNavigation);
+    };
+  }, []);
+
   return (
     <div className="topbar_nav_item">
       <div className="logo" style={{display:"flex",justifyContent:"space-between"}}>
       {/* <h1>askmail</h1> */}
+      {previousUrl !== '' && previousUrl !== window.location.href && (
       <div>
         <Button className="connect-with-gmail" onClick={handleDownloadPDF} type="primary" ghost>Download PDF</Button>
         </div>
+      )}
       <div>
         <Button className="connect-with-gmail" onClick={handleGoogleApi} type="primary" ghost>Connect with Gmail</Button>
         </div>

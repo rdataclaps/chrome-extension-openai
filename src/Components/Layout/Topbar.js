@@ -39,7 +39,7 @@ console.log("croute",window.location.href)
     <div className="topbar_nav_item">
       <div className="logo" style={{display:"flex",justifyContent:"space-between"}}>
       {/* <h1>askmail</h1> */}
-      {previousUrl !== '' && previousUrl !== window.location.href && (
+      {previousUrl !== window.location.href && (
       <div>
         <Button className="connect-with-gmail" onClick={handleDownloadPDF} type="primary" ghost>Download PDF</Button>
         </div>

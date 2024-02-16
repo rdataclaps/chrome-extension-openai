@@ -33,7 +33,8 @@ function Topbar() {
       window.removeEventListener('beforeunload', handleNavigation);
     };
   }, []);
-
+console.log("proute",previousUrl)
+console.log("croute",window.location.href)
   return (
     <div className="topbar_nav_item">
       <div className="logo" style={{display:"flex",justifyContent:"space-between"}}>
